@@ -1,27 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. STICKY NAVBAR
+    // 0. CUSTOM CURSOR LOGIC (Desktop Only)
+    if (window.innerWidth > 1024) {
+        const cursor = document.createElement('div');
+        const follower = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        follower.className = 'cursor-follower';
+        document.body.appendChild(cursor);
+        document.body.appendChild(follower);
+
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
+            gsap.to(follower, { x: e.clientX - 20, y: e.clientY - 20, duration: 0.3 });
+        });
+
+        document.querySelectorAll('a, button, .portfolio-card, .service-card').forEach(el => {
+            el.addEventListener('mouseenter', () => follower.classList.add('hover'));
+            el.addEventListener('mouseleave', () => follower.classList.remove('hover'));
+        });
+    } else {
+        document.body.style.cursor = 'auto';
+    }
+
+    // 1. STICKY NAVBAR & BOTTOM NAV
     const header = document.querySelector('.header');
+    const bottomNav = document.querySelector('.mobile-bottom-nav');
+    let lastScroll = 0;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        const currentScroll = window.scrollY;
+        if (currentScroll > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
 
-    // 2. REVEAL ON SCROLL
-    const revealElements = document.querySelectorAll('.reveal-up');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const delay = entry.target.getAttribute('data-delay') || 0;
-                setTimeout(() => {
-                    entry.target.classList.add('active');
-                }, delay * 1000);
+        if (bottomNav) {
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                bottomNav.classList.add('hidden');
+            } else {
+                bottomNav.classList.remove('hidden');
             }
-        });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => revealObserver.observe(el));
+        }
+        lastScroll = currentScroll;
+    });
 
     // 3. COUNTER ANIMATION
     const counters = document.querySelectorAll('.counter');
@@ -110,107 +131,69 @@ document.addEventListener('DOMContentLoaded', () => {
         dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
     }
 
-    // Custom utility for initial reveal
-    function revealOnScroll() {
-        const initialReveals = document.querySelectorAll('.hero .reveal-up');
-        initialReveals.forEach((el, index) => {
-            setTimeout(() => {
-                el.classList.add('active');
-            }, index * 200);
-        });
-    }
-
-    // 13. SPARKLE PARTICLE GENERATOR
-    const createSparkles = () => {
-        const container = document.getElementById('sparkle-container');
-        if (!container) return;
-        for (let i = 0; i < 30; i++) {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + '%';
-            sparkle.style.top = Math.random() * 100 + '%';
-            sparkle.style.animationDelay = Math.random() * 5 + 's';
-            container.appendChild(sparkle);
-        }
-    };
-    createSparkles();
-
-    // 14. GSAP LUXURY ANIMATIONS
+    // 8. GSAP ANIMATIONS
     if (typeof gsap !== 'undefined') {
-        // Hero Stagger Reveal
-        gsap.from('.hero-title span', {
-            duration: 1.5,
-            y: 100,
-            opacity: 0,
-            stagger: 0.2,
-            ease: 'power4.out',
-            delay: 0.5
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Parallax
+        gsap.to('.hero-img', {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
         });
 
-        gsap.from('.hero-subtitle', {
-            duration: 1,
-            opacity: 0,
-            y: 20,
-            delay: 1.2,
-            ease: 'power2.out'
+        // Staggered Reveal for all sections
+        gsap.utils.toArray('.reveal-up').forEach((elem) => {
+            gsap.fromTo(elem, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 1.2,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
+                }
+            );
         });
 
-        // Magnetic Buttons Logic
+        // Magnetic Buttons
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-                gsap.to(btn, {
-                    x: x * 0.3,
-                    y: y * 0.3,
-                    duration: 0.4,
-                    ease: 'power2.out'
-                });
+                gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: 'power2.out' });
             });
             btn.addEventListener('mouseleave', () => {
                 gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.3)' });
             });
         });
-
-        // Portfolio Card Tilt
-        document.querySelectorAll('.portfolio-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                gsap.to(card, {
-                    rotationY: x * 10,
-                    rotationX: -y * 10,
-                    transformPerspective: 1000,
-                    duration: 0.4
-                });
-            });
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.6 });
-            });
-        });
     }
 
-    // 15. TYPEWRITER EFFECT
-    const typeQuote = (el) => {
-        const text = el.innerText;
-        el.innerText = '';
-        let i = 0;
-        const type = () => {
-            if (i < text.length) {
-                el.innerText += text.charAt(i);
-                i++;
-                setTimeout(type, 50);
-            }
-        };
-        type();
-    };
+    // 9. TYPEWRITER EFFECT
     const quoteEl = document.querySelector('.quote-text');
     if (quoteEl) {
+        const text = quoteEl.innerText;
+        quoteEl.innerText = '';
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                typeQuote(quoteEl);
+                let i = 0;
+                const type = () => {
+                    if (i < text.length) {
+                        quoteEl.innerText += text.charAt(i);
+                        i++;
+                        setTimeout(type, 40);
+                    }
+                };
+                type();
                 observer.unobserve(quoteEl);
             }
         }, { threshold: 0.5 });
