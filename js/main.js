@@ -1,17 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. LOADER
-    const loader = document.getElementById('loader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            loader.classList.add('loaded');
-            setTimeout(() => {
-                loader.style.display = 'none';
-                revealOnScroll();
-            }, 1200); // Wait for split animation to finish
-        }, 2000); // 2s show time for image appreciation
-    });
-
-    // 2. STICKY NAVBAR & SCROLL EFFECTS
+    // 1. STICKY NAVBAR
     const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -21,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. REVEAL ON SCROLL (Intersection Observer)
+    // 2. REVEAL ON SCROLL
     const revealElements = document.querySelectorAll('.reveal-up');
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -33,10 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.1 });
-
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 4. COUNTER ANIMATION
+    // 3. COUNTER ANIMATION
     const counters = document.querySelectorAll('.counter');
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -58,50 +45,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 1 });
-
     counters.forEach(counter => counterObserver.observe(counter));
 
-    // 5. PORTFOLIO FILTERING
+    // 4. PORTFOLIO FILTERING
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
-
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const filterValue = btn.getAttribute('data-filter');
-
             portfolioItems.forEach(item => {
                 if (filterValue === 'all' || item.classList.contains(filterValue)) {
                     item.style.display = 'inline-block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
+                    setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
                 } else {
                     item.style.opacity = '0';
                     item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 400);
+                    setTimeout(() => { item.style.display = 'none'; }, 400);
                 }
             });
         });
     });
 
-    // 6. MOBILE MENU TOGGLE
+    // 5. MOBILE MENU
     const mobileMenuBtn = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuBtn.classList.toggle('active');
         });
-
-        // Close menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -110,71 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. FORM SUBMISSION (PREVENT DEFAULT & LOG)
-    const bookingForm = document.querySelector('.booking-form');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = bookingForm.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = 'Checking Availability...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                alert('Thank you! I will get back to you shortly.');
-                btn.innerText = originalText;
-                btn.disabled = false;
-                bookingForm.reset();
-            }, 2000);
-        });
-    }
-
-    // 8. BEFORE/AFTER SLIDER LOGIC
-    const comparisonSlider = document.querySelector('.comparison-slider');
-    if (comparisonSlider) {
-        const sliderInput = comparisonSlider.querySelector('.slider-input');
-        const afterImg = comparisonSlider.querySelector('.after-img');
-        const handle = comparisonSlider.querySelector('.slider-handle');
-
-        sliderInput.addEventListener('input', (e) => {
-            const value = e.target.value;
-            afterImg.style.width = `${value}%`;
-            handle.style.left = `${value}%`;
-        });
-    }
-
-    // Custom utility for initial reveal
-    function revealOnScroll() {
-        const initialReveals = document.querySelectorAll('.hero .reveal-up');
-        initialReveals.forEach((el, index) => {
-            setTimeout(() => {
-                el.classList.add('active');
-            }, index * 200);
-        });
-    }
-});
-
-// 9. PERFORMANCE: PREFETCH ON HOVER
-const links = document.querySelectorAll('a[href*=".html"]');
-links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        const href = link.getAttribute('href');
-        if (href && !document.querySelector(`link[href="${href}"]`)) {
-            const prefetch = document.createElement('link');
-            prefetch.rel = 'prefetch';
-            prefetch.href = href;
-            document.head.appendChild(prefetch);
-        }
-    }, { once: true });
-});
-
-    // 11. LIGHTBOX GALLERY LOGIC
+    // 6. LIGHTBOX
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         const lightboxImg = lightbox.querySelector('.lightbox-content');
         const closeBtn = lightbox.querySelector('.lightbox-close');
-
         document.querySelectorAll('.portfolio-card img').forEach(img => {
             img.addEventListener('click', () => {
                 lightboxImg.src = img.src;
@@ -182,51 +96,41 @@ links.forEach(link => {
                 document.body.style.overflow = 'hidden';
             });
         });
-
         const closeLightbox = () => {
             lightbox.classList.remove('active');
             document.body.style.overflow = 'auto';
         };
-
         closeBtn.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
     }
 
-    // 12. FORM ENHANCEMENT: DATE VALIDATION
+    // 7. DATE VALIDATION
     const dateInput = document.querySelector('input[type="date"]');
     if (dateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
+        dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
     }
 });
 
-// 13. SPARKLE PARTICLE GENERATOR
-function createSparkles() {
-    const container = document.getElementById('sparkle-container');
-    if (!container) return;
-
-    for (let i = 0; i < 20; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = Math.random() * 100 + '%';
-        sparkle.style.top = Math.random() * 100 + '%';
-        sparkle.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(sparkle);
+// 8. LOADER LOGIC (OUTSIDE FOR SPEED)
+const loader = document.getElementById('loader');
+const hideLoader = () => {
+    if (loader && !loader.classList.contains('loaded')) {
+        loader.classList.add('loaded');
+        setTimeout(() => { loader.style.display = 'none'; }, 1200);
     }
-}
-createSparkles();
+};
 
-// 14. MAGNETIC BUTTONS (SUBTLE)
-document.querySelectorAll('.btn-primary').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-    });
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0, 0)';
-    });
+window.addEventListener('load', hideLoader);
+setTimeout(hideLoader, 5000); // FALLBACK: Always hide after 5s
+
+// 9. PREFETCH
+document.querySelectorAll('a[href*=".html"]').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        const href = link.getAttribute('href');
+        if (href && !document.querySelector(`link[href="${href}"]`)) {
+            const prefetch = document.createElement('link');
+            prefetch.rel = 'prefetch'; prefetch.href = href;
+            document.head.appendChild(prefetch);
+        }
+    }, { once: true });
 });
