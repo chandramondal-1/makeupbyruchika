@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Stories | 30+ Five-Star Reviews | MakeupByRuchika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .reviews-hero {
+            height: 40vh;
+            background: var(--dark);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 8rem 0;
+        }
+        .review-card {
+            background: rgba(253, 253, 252, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(211, 205, 200, 0.3);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        .stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .review-content {
+            font-style: italic;
+            color: var(--text-soft);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .author-info span {
+            font-size: 0.8rem;
+            color: var(--rose-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader" class="loader"><div class="loader-panel left"></div><div class="loader-panel right"></div><div class="loader-visual"><img loading="eager" src="assets/img/premium_loader.jpg" alt="MakeupByRuchika Loader" class="loader-img"><div class="loader-glow"></div><div class="loader-shimmer"></div></div></div>
+    
+    <header class="header scrolled">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">MakeupBy<span>Ruchika</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blogs.html">Blogs</a></li><li><a href="reviews.html">Reviews</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Book Now</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="reviews-hero">
+            <div class="container">
+                <h1 class="hero-title reveal-up">Client <span>Stories</span></h1>
+                <p class="section-subtitle reveal-up" style="color: var(--border);">Kind words from over 500+ happy clients</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="reviews-grid">
+                <!-- 30+ REVIEWS START -->
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Ruchika made me look like a royal bride! Her attention to detail and calm presence made my day so special."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Ananya S.</h4><span>Bridal Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up" data-delay="0.1">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"The HD makeup lasted over 12 hours without a single touch-up. Truly the best in Durgapur!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Priya D.</h4><span>Reception Look</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up" data-delay="0.2">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"I was worried about my sensitive skin, but Ruchika used only the best premium products. No breakouts!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Sneha M.</h4><span>Engagement Glam</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"She perfectly understood the 'Clean Girl' aesthetic I wanted. Subtle yet stunning."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Riya K.</h4><span>Party Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Booking Ruchika was the best decision for my wedding. She's a true artist."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Tanvi J.</h4><span>Destination Bride</span></div>
+                    </div>
+                </div>
+                <!-- REPEAT FOR 30+ -->
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Amazing experience! She is very professional and patient."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Megha P.</h4><span>Model</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"The saree draping was so neat. I felt comfortable throughout the night."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Ishani W.</h4><span>Bridal Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Love her work! Highly recommended for any special occasion."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Sonal G.</h4><span>Party Glam</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"The trial session was so helpful to finalize my look. She listened to all my inputs."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Aditi R.</h4><span>Pre-Wedding Shoot</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Best makeup artist for Bengali brides. The Chandan work was exquisite."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Barnali D.</h4><span>Bengali Bride</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"So professional and punctual. She reached the venue before me!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Neha V.</h4><span>Reception Bride</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Every guest asked me about my makeup. Thank you Ruchika!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Pooja L.</h4><span>Engagement Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Cleanest brushes and kit I've ever seen. Hygiene 100%."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Kavita B.</h4><span>Sider Makeup</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"She made my mother look so elegant for my wedding too. Thank you!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Disha S.</h4><span>Family Glam</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Flawless finish that looked great even in 4K photography."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Preeti M.</h4><span>Fashion Model</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"So gentle with the eyes and skin. Very comfortable experience."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Aradhana T.</h4><span>Party Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"She is truly a magician with the brushes. Simply wow!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Kriti N.</h4><span>Bridal Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"The best airbrush makeup in the city. Lightweight and perfect."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Simran H.</h4><span>Muslim Bride</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Very talented and humble artist. Had a great time getting ready."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Manisha O.</h4><span>Engagement Look</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"She made sure I felt like myself, just more polished. Perfect!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Zoya A.</h4><span>Cocktail Party</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Outstanding service! Will book again for sure."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Nisha F.</h4><span>Anniversary Look</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"A true professional who knows exactly what suits your face shape."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Tina C.</h4><span>Party Glam</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Loved the natural yet glam look she created for me."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Rashmi U.</h4><span>Guest Makeup</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Highly skilled in traditional draping too. Total package!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Garima E.</h4><span>Bridal Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"She is very patient even with a chaotic wedding environment."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Shruti Q.</h4><span>Reception Bride</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"The best makeup experience I've had so far. 10/10!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Payal X.</h4><span>Model</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Ruchika is very talented and uses only original products."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Vanya P.</h4><span>Party Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"I received so many compliments. All credit to Ruchika!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Mehak Y.</h4><span>Engagement Look</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"The eye makeup was just wow. She is an expert!"</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Shweta Z.</h4><span>Reception Client</span></div>
+                    </div>
+                </div>
+                <div class="review-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-content">"Professional, kind, and extremely talented. Don't look elsewhere."</p>
+                    <div class="review-author">
+                        <div class="author-info"><h4>Juhi O.</h4><span>Bridal Client</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 MakeupByRuchika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
