@@ -109,19 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dateInput) {
         dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
     }
-});
 
-// 8. LOADER LOGIC (OUTSIDE FOR SPEED)
-const loader = document.getElementById('loader');
-const hideLoader = () => {
-    if (loader && !loader.classList.contains('loaded')) {
-        loader.classList.add('loaded');
-        setTimeout(() => { loader.style.display = 'none'; }, 1200);
+    // Custom utility for initial reveal
+    function revealOnScroll() {
+        const initialReveals = document.querySelectorAll('.hero .reveal-up');
+        initialReveals.forEach((el, index) => {
+            setTimeout(() => {
+                el.classList.add('active');
+            }, index * 200);
+        });
     }
-};
 
-window.addEventListener('load', hideLoader);
-setTimeout(hideLoader, 5000); // FALLBACK: Always hide after 5s
+    revealOnScroll();
+});
 
 // 9. PREFETCH
 document.querySelectorAll('a[href*=".html"]').forEach(link => {
