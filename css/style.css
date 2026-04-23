@@ -1298,42 +1298,7 @@ img {
     justify-content: center;
 }
 
-/* CUSTOM LUXURY CURSOR */
-.custom-cursor {
-    width: 20px;
-    height: 20px;
-    background: var(--rose-gold);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.1s ease-out, opacity 0.3s ease;
-    opacity: 0;
-}
 
-.custom-cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--rose-gold);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transition: transform 0.2s ease-out, opacity 0.3s ease;
-    opacity: 0;
-}
-
-body:hover .custom-cursor,
-body:hover .custom-cursor-outline {
-    opacity: 1;
-}
-
-/* LIGHTBOX UI */
 .lightbox {
     position: fixed;
     top: 0;

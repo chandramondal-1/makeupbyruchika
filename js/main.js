@@ -169,32 +169,6 @@ links.forEach(link => {
     }, { once: true });
 });
 
-// 10. CUSTOM CURSOR LOGIC
-document.addEventListener('DOMContentLoaded', () => {
-    const cursor = document.querySelector('.custom-cursor');
-    const cursorOutline = document.querySelector('.custom-cursor-outline');
-
-    if (cursor && cursorOutline) {
-        document.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            cursor.style.transform = `translate3d(${posX - 10}px, ${posY - 10}px, 0)`;
-            cursorOutline.style.transform = `translate3d(${posX - 20}px, ${posY - 20}px, 0)`;
-        });
-
-        const interactables = document.querySelectorAll('a, button, .portfolio-card, .service-card');
-        interactables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(2.5)';
-                cursorOutline.style.transform = 'scale(1.5)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursorOutline.style.transform = 'scale(1)';
-            });
-        });
-    }
-
     // 11. LIGHTBOX GALLERY LOGIC
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
