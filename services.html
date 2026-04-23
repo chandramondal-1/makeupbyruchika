@@ -14,67 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .services-hero {
-            height: 40vh;
-            background: var(--bg-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .pricing-table {
-            padding: 5rem 0;
-        }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .pricing-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-medium);
-            border-color: var(--accent);
-        }
-        .pricing-card.premium {
-            background: var(--dark);
-            color: var(--white);
-            transform: scale(1.05);
-        }
-        .pricing-card.premium:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-        .pricing-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        .pricing-card .price {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
-        .pricing-card ul {
-            text-align: left;
-            margin-bottom: 2.5rem;
-        }
-        .pricing-card ul li {
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .pricing-card ul li i { color: var(--rose-gold); }
-    </style>
 </head>
 <body>
     <div id="sparkle-container"></div>
@@ -112,34 +51,24 @@
                         <h3>Bridal Premium</h3>
                         <div class="price">₹14,999</div>
                         <ul>
-                            <li><i class="icon-check"></i> Luxury HD/Airbrush</li>
-                            <li><i class="icon-check"></i> Advanced Hairstyling</li>
-                            <li><i class="icon-check"></i> Mink Lashes Included</li>
-                            <li><i class="icon-check"></i> Saree/Lehenga Draping</li>
-                            <li><i class="icon-check"></i> Trial Session Included</li>
-                        </ul><div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+                            <li><i class="fas fa-check"></i> Luxury HD/Airbrush</li>
+                            <li><i class="fas fa-check"></i> Advanced Hairstyling</li>
+                            <li><i class="fas fa-check"></i> Mink Lashes Included</li>
+                            <li><i class="fas fa-check"></i> Saree/Lehenga Draping</li>
+                            <li><i class="fas fa-check"></i> Trial Session Included</li>
+                        </ul>
                         <a href="contact.html" class="btn btn-primary btn-block" style="background: var(--accent);">Book My Big Day</a>
                     </div>
                     <div class="pricing-card reveal-up" data-delay="0.4">
                         <h3>HD Bridal</h3>
                         <div class="price">₹8,999</div>
                         <ul>
-                            <li><i class="icon-check"></i> HD Bridal Makeup</li>
-                            <li><i class="icon-check"></i> Elegant Hairstyling</li>
-                            <li><i class="icon-check"></i> Standard Lashes</li>
-                            <li><i class="icon-check"></i> Saree Draping</li>
-                        </ul><div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
-                        <h3 class="h3">Platinum Elite</h3>
-                        <p>The Ultimate Celebrity Experience</p>
-                        <div class="price">₹24,999<span>*</span></div>
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Airbrush Artistry</li>
-                            <li><i class="fas fa-check"></i> Global Hair Trends</li>
-                            <li><i class="fas fa-check"></i> Body Glow & Contour</li>
-                            <li><i class="fas fa-check"></i> Unlimited Touch-ups</li>
-                            <li><i class="fas fa-check"></i> Travel Included (City)</li>
+                            <li><i class="fas fa-check"></i> HD Bridal Makeup</li>
+                            <li><i class="fas fa-check"></i> Elegant Hairstyling</li>
+                            <li><i class="fas fa-check"></i> Standard Lashes</li>
+                            <li><i class="fas fa-check"></i> Saree Draping</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-secondary">Book Platinum</a>
+                        <a href="contact.html" class="btn btn-secondary btn-block">Book Now</a>
                     </div>
                 </div>
                 <p class="text-center mt-3 reveal-up" style="font-size: 0.8rem; color: var(--text-muted);">*Prices may vary based on location and specific requirements. Starting from mentioned rates.</p>

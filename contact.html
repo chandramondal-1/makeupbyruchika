@@ -14,22 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .contact-hero {
-            height: 40vh;
-            background: var(--dark);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .contact-hero .hero-title { color: var(--white); }
-        .booking-page-wrapper {
-            padding: 8rem 0;
-            background: var(--bg-main);
-        }
-    </style>
 </head>
 <body>
     <div id="sparkle-container"></div>
@@ -50,7 +34,7 @@
 
         <section class="booking-page-wrapper">
             <div class="container">
-                <div class="booking-wrapper reveal-up" style="max-width: 1000px; margin: 0 auto;">
+                <div class="booking-wrapper reveal-up">
                     <div class="booking-info">
                         <h2>Reservation Details</h2>
                         <p>Please fill out the form below. I will check availability and get back to you with a custom quote within 24 hours.</p>
@@ -67,7 +51,7 @@
                         </div>
                     </div>
                     <form class="booking-form">
-                        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-grid">
                             <div class="form-group">
                                 <label>Full Name</label>
                                 <input type="text" placeholder="e.g. Ananya Sharma" required>
