@@ -168,3 +168,62 @@ links.forEach(link => {
         }
     }, { once: true });
 });
+
+// 10. CUSTOM CURSOR LOGIC
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorOutline = document.querySelector('.custom-cursor-outline');
+
+    if (cursor && cursorOutline) {
+        document.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursor.style.transform = `translate3d(${posX - 10}px, ${posY - 10}px, 0)`;
+            cursorOutline.style.transform = `translate3d(${posX - 20}px, ${posY - 20}px, 0)`;
+        });
+
+        const interactables = document.querySelectorAll('a, button, .portfolio-card, .service-card');
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2.5)';
+                cursorOutline.style.transform = 'scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursorOutline.style.transform = 'scale(1)';
+            });
+        });
+    }
+
+    // 11. LIGHTBOX GALLERY LOGIC
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        const lightboxImg = lightbox.querySelector('.lightbox-content');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+
+        document.querySelectorAll('.portfolio-card img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
+
+    // 12. FORM ENHANCEMENT: DATE VALIDATION
+    const dateInput = document.querySelector('input[type="date"]');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+});

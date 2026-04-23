@@ -1297,3 +1297,87 @@ img {
     align-items: center;
     justify-content: center;
 }
+
+/* CUSTOM LUXURY CURSOR */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--rose-gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.custom-cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--rose-gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.2s ease-out, opacity 0.3s ease;
+    opacity: 0;
+}
+
+body:hover .custom-cursor,
+body:hover .custom-cursor-outline {
+    opacity: 1;
+}
+
+/* LIGHTBOX UI */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(21, 16, 13, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+
+/* MAGNETIC HOVER REFINEMENT */
+.btn, .service-card, .portfolio-card {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover { transform: translateY(-3px) scale(1.02); }
