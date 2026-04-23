@@ -26,7 +26,7 @@
     --section-pad-tablet: 60px 30px;
     --section-pad-desktop: 100px 60px;
     
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.4s ease-out;
     --shadow-soft: 0 10px 30px rgba(73, 48, 38, 0.05);
     --shadow-medium: 0 20px 40px rgba(73, 48, 38, 0.1);
 }
@@ -1323,7 +1323,7 @@ img {
     max-width: 90%;
     max-height: 90%;
     transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s ease-out;
 }
 
 .lightbox.active .lightbox-content {
@@ -1355,7 +1355,7 @@ img {
     100% { background-position: 200% 0; }
 }
 
-.shimmer-text {
+.logo.shimmer-text {
     background: linear-gradient(90deg, var(--text) 25%, var(--gold) 50%, var(--text) 75%);
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -1396,7 +1396,7 @@ img {
 
 /* 5. PORTFOLIO HOVER ZOOM */
 .portfolio-card img {
-    transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+    transition: transform 1.2s ease-out;
 }
 
 .portfolio-card:hover img {
