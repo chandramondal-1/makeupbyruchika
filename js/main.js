@@ -1,20 +1,14 @@
-    // 1. LOADER (Optimized with Fallback)
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. LOADER
     const loader = document.getElementById('loader');
-    
-    const hideLoader = () => {
-        if (!loader || loader.classList.contains('loaded')) return;
-        loader.classList.add('loaded');
-        setTimeout(() => {
-            loader.style.display = 'none';
-            revealOnScroll();
-        }, 1000);
-    };
-
-    // Auto-hide after 5s regardless of assets
-    setTimeout(hideLoader, 5000);
-
     window.addEventListener('load', () => {
-        setTimeout(hideLoader, 1500); // 1.5s for brand appreciation
+        setTimeout(() => {
+            loader.classList.add('loaded');
+            setTimeout(() => {
+                loader.style.display = 'none';
+                revealOnScroll();
+            }, 1200); // Wait for split animation to finish
+        }, 2000); // 2s show time for image appreciation
     });
 
     // 2. STICKY NAVBAR & SCROLL EFFECTS
@@ -27,25 +21,20 @@
         }
     });
 
-    // 3. REVEAL ON SCROLL (Staggered & Luxury)
+    // 3. REVEAL ON SCROLL (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal-up');
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const customDelay = entry.target.getAttribute('data-delay') || 0;
-                const staggerDelay = customDelay || (index % 3) * 0.1;
-                
+                const delay = entry.target.getAttribute('data-delay') || 0;
                 setTimeout(() => {
                     entry.target.classList.add('active');
-                }, staggerDelay * 1000);
+                }, delay * 1000);
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
 
-    revealElements.forEach(el => {
-        el.style.transition = 'all 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
-        revealObserver.observe(el);
-    });
+    revealElements.forEach(el => revealObserver.observe(el));
 
     // 4. COUNTER ANIMATION
     const counters = document.querySelectorAll('.counter');
@@ -205,10 +194,39 @@ links.forEach(link => {
         });
     }
 
-// 12. FORM ENHANCEMENT: DATE VALIDATION
+    // 12. FORM ENHANCEMENT: DATE VALIDATION
     const dateInput = document.querySelector('input[type="date"]');
     if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
     }
+});
+
+// 13. SPARKLE PARTICLE GENERATOR
+function createSparkles() {
+    const container = document.getElementById('sparkle-container');
+    if (!container) return;
+
+    for (let i = 0; i < 20; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(sparkle);
+    }
+}
+createSparkles();
+
+// 14. MAGNETIC BUTTONS (SUBTLE)
+document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+    });
 });
