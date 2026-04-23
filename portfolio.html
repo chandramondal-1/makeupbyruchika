@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Portfolio | 50+ Luxury Transformations by Ruchika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .portfolio-hero {
+            height: 40vh;
+            background: var(--dark);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .portfolio-hero .hero-title { color: var(--white); }
+        .gallery-container { padding: 5rem 0; }
+        
+        /* Masonry Grid */
+        .portfolio-grid {
+            display: columns;
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+        .portfolio-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        @media (max-width: 992px) { .portfolio-grid { column-count: 2; } }
+        @media (max-width: 600px) { .portfolio-grid { column-count: 1; } }
+
+        .portfolio-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader" class="loader"><div class="loader-panel left"></div><div class="loader-panel right"></div><div class="loader-visual"><img src="assets/img/premium_loader.jpg" alt="MakeupByRuchika Loader" class="loader-img"><div class="loader-glow"></div><div class="loader-shimmer"></div></div></div>
+    <header class="header scrolled">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">MakeupBy<span>Ruchika</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Book Now</a></li>
+            </ul><div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portfolio-hero">
+            <div class="container">
+                <h1 class="hero-title reveal-up">The Master Gallery</h1>
+                <p class="section-subtitle reveal-up" style="color: var(--border);">50+ Signature Transformations & Artistry Details</p>
+            </div>
+        </section>
+
+        <section class="gallery-container">
+            <div class="container">
+                <div class="filter-buttons reveal-up" style="margin-bottom: 3rem;">
+                    <button class="filter-btn active" data-filter="all">All Masterpieces</button>
+                    <button class="filter-btn" data-filter="bridal">Bridal</button>
+                    <button class="filter-btn" data-filter="engagement">Engagement</button>
+                    <button class="filter-btn" data-filter="party">Party Glam</button>
+                    <button class="filter-btn" data-filter="editorial">Editorial</button>
+                </div>
+
+                <div class="portfolio-grid reveal-up">
+                    <!-- REPEATING THE BEST ASSETS TO SHOW SCALE (User can replace with actual 50 images) -->
+                    <!-- BATCH 1 -->
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal"><div class="portfolio-overlay"><span>Royal Bridal</span></div></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/engagement.png" alt="Engagement"><div class="portfolio-overlay"><span>Engagement Glow</span></div></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/party_glam_makeup.png" alt="Party"><div class="portfolio-overlay"><span>Midnight Glam</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/bengali_bridal.png" alt="Bengali"><div class="portfolio-overlay"><span>Bengali Soul</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/muslim_bridal.png" alt="Muslim"><div class="portfolio-overlay"><span>Muslim Bridal</span></div></div></div>
+                    <div class="portfolio-item editorial"><div class="portfolio-card"><img src="assets/img/hd_makeup.png" alt="HD"><div class="portfolio-overlay"><span>Editorial HD</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/saree_draping.png" alt="Saree"><div class="portfolio-overlay"><span>Saree Artistry</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hair_styling.png" alt="Hair"><div class="portfolio-overlay"><span>Royal Bun</span></div></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/reception.png" alt="Reception"><div class="portfolio-overlay"><span>Reception Glam</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/after.png" alt="After"><div class="portfolio-overlay"><span>The Transformation</span></div></div></div>
+
+                    <!-- BATCH 2 (Simulating 50+ by repeating with different filters/alt text) -->
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 2"><div class="portfolio-overlay"><span>Summer Bride</span></div></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/party_glam_makeup.png" alt="Party 2"><div class="portfolio-overlay"><span>Cocktail Glam</span></div></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/engagement.png" alt="Engagement 2"><div class="portfolio-overlay"><span>Pastel Love</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/bengali_bridal.png" alt="Bengali 2"><div class="portfolio-overlay"><span>Traditional Glow</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/saree_draping.png" alt="Saree 2"><div class="portfolio-overlay"><span>Silk Draping</span></div></div></div>
+                    
+                    <!-- BATCH 3 (Repetition 3) -->
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 3"><div class="portfolio-overlay"><span>Morning Glow</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/muslim_bridal.png" alt="Muslim 2"><div class="portfolio-overlay"><span>Graceful Nikah</span></div></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/hd_makeup.png" alt="HD 2"><div class="portfolio-overlay"><span>Studio Finish</span></div></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/reception.png" alt="Reception 2"><div class="portfolio-overlay"><span>Night Sparkle</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hair_styling.png" alt="Hair 2"><div class="portfolio-overlay"><span>Floral Braid</span></div></div></div>
+
+                    <!-- BATCH 4 (Repetition 4) -->
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 4"><div class="portfolio-overlay"><span>Royal Red</span></div></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/engagement.png" alt="Engagement 3"><div class="portfolio-overlay"><span>Ring Ceremony</span></div></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/party_glam_makeup.png" alt="Party 3"><div class="portfolio-overlay"><span>Dinner Glam</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/bengali_bridal.png" alt="Bengali 3"><div class="portfolio-overlay"><span>Classic Chandan</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/saree_draping.png" alt="Saree 3"><div class="portfolio-overlay"><span>Lehenga Draping</span></div></div></div>
+
+                    <!-- BATCH 5 (Repetition 5) -->
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 5"><div class="portfolio-overlay"><span>Modern Bride</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/muslim_bridal.png" alt="Muslim 3"><div class="portfolio-overlay"><span>Elegant Hijab</span></div></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/hd_makeup.png" alt="HD 3"><div class="portfolio-overlay"><span>Red Carpet</span></div></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/reception.png" alt="Reception 3"><div class="portfolio-overlay"><span>Grand Reception</span></div></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hair_styling.png" alt="Hair 3"><div class="portfolio-overlay"><span>South Indian Braid</span></div></div></div>
+
+                    <!-- REPEATING MORE TO REACH 50+ SLOTS -->
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 6"></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/party_glam_makeup.png" alt="Party 4"></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/engagement.png" alt="Engagement 4"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/bengali_bridal.png" alt="Bengali 4"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/saree_draping.png" alt="Saree 4"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 7"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/muslim_bridal.png" alt="Muslim 4"></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/hd_makeup.png" alt="HD 4"></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/reception.png" alt="Reception 4"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hair_styling.png" alt="Hair 4"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 8"></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/party_glam_makeup.png" alt="Party 5"></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/engagement.png" alt="Engagement 5"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/bengali_bridal.png" alt="Bengali 5"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/saree_draping.png" alt="Saree 5"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hero_bridal_makeup.png" alt="Bridal 9"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/muslim_bridal.png" alt="Muslim 5"></div></div>
+                    <div class="portfolio-item party"><div class="portfolio-card"><img src="assets/img/hd_makeup.png" alt="HD 5"></div></div>
+                    <div class="portfolio-item engagement"><div class="portfolio-card"><img src="assets/img/reception.png" alt="Reception 5"></div></div>
+                    <div class="portfolio-item bridal"><div class="portfolio-card"><img src="assets/img/hair_styling.png" alt="Hair 5"></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 MakeupByRuchika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

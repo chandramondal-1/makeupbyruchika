@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing | MakeupByRuchika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .services-hero {
+            height: 40vh;
+            background: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .pricing-table {
+            padding: 5rem 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accent);
+        }
+        .pricing-card.premium {
+            background: var(--dark);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+        .pricing-card.premium:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .pricing-card .price {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+        .pricing-card ul {
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+        .pricing-card ul li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pricing-card ul li i { color: var(--rose-gold); }
+    </style>
+</head>
+<body>
+    <div id="loader" class="loader"><div class="loader-panel left"></div><div class="loader-panel right"></div><div class="loader-visual"><img src="assets/img/premium_loader.jpg" alt="MakeupByRuchika Loader" class="loader-img"><div class="loader-glow"></div><div class="loader-shimmer"></div></div></div>
+    <header class="header scrolled">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">MakeupBy<span>Ruchika</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Book Now</a></li>
+            </ul><div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services-hero">
+            <div class="container">
+                <h1 class="hero-title reveal-up">Packages & <span>Pricing</span></h1>
+                <p class="section-subtitle reveal-up" data-delay="0.2">Luxury Artistry for Every Special Occasion</p>
+            </div>
+        </section>
+
+        <section class="pricing-table">
+            <div class="container">
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal-up">
+                        <h3>Party Glam</h3>
+                        <div class="price">₹2,999</div>
+                        <ul>
+                            <li><i class="icon-check"></i> HD Makeup</li>
+                            <li><i class="icon-check"></i> Basic Hairstyling</li>
+                            <li><i class="icon-check"></i> Synthetic Lashes</li>
+                            <li><i class="icon-check"></i> Duration: 1.5 Hours</li>
+                        </ul><div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+                        <a href="contact.html" class="btn btn-secondary btn-block">Select Package</a>
+                    </div>
+                    <div class="pricing-card premium reveal-up" data-delay="0.2">
+                        <div class="badge" style="background: var(--rose-gold); color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 1rem; font-size: 0.7rem; text-transform: uppercase;">Most Popular</div>
+                        <h3>Bridal Premium</h3>
+                        <div class="price">₹14,999</div>
+                        <ul>
+                            <li><i class="icon-check"></i> Luxury HD/Airbrush</li>
+                            <li><i class="icon-check"></i> Advanced Hairstyling</li>
+                            <li><i class="icon-check"></i> Mink Lashes Included</li>
+                            <li><i class="icon-check"></i> Saree/Lehenga Draping</li>
+                            <li><i class="icon-check"></i> Trial Session Included</li>
+                        </ul><div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+                        <a href="contact.html" class="btn btn-primary btn-block" style="background: var(--accent);">Book My Big Day</a>
+                    </div>
+                    <div class="pricing-card reveal-up" data-delay="0.4">
+                        <h3>HD Bridal</h3>
+                        <div class="price">₹8,999</div>
+                        <ul>
+                            <li><i class="icon-check"></i> HD Bridal Makeup</li>
+                            <li><i class="icon-check"></i> Elegant Hairstyling</li>
+                            <li><i class="icon-check"></i> Standard Lashes</li>
+                            <li><i class="icon-check"></i> Saree Draping</li>
+                        </ul><div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+                        <a href="contact.html" class="btn btn-secondary btn-block">Select Package</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="add-ons section-padding">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Luxury Add-Ons</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal-up">
+                        <div class="service-info">
+                            <h3>Saree Draping</h3>
+                            <p>Perfectly draped Banarasi, Silk, or Contemporary sarees.</p>
+                            <span class="price">₹499</span>
+                        </div>
+                    </div>
+                    <div class="service-card reveal-up" data-delay="0.2">
+                        <div class="service-info">
+                            <h3>Hair Extensions</h3>
+                            <p>Premium quality extensions for volume and length.</p>
+                            <span class="price">₹1,499</span>
+                        </div>
+                    </div>
+                    <div class="service-card reveal-up" data-delay="0.4">
+                        <div class="service-info">
+                            <h3>Bridesmaid Glam</h3>
+                            <p>Special group pricing for the bride's squad.</p>
+                            <span class="price">₹2,499/person</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 MakeupByRuchika. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
