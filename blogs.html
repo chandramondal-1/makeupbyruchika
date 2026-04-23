@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Beauty Blog | MakeupByRuchika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-hero {
+            height: 40vh;
+            background: var(--dark);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            padding: 8rem 0;
+        }
+        .blog-card {
+            background: rgba(253, 253, 252, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(211, 205, 200, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        .blog-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+        .blog-info {
+            padding: 2rem;
+        }
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--rose-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .blog-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .blog-info p {
+            color: var(--text-soft);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader" class="loader"><div class="loader-panel left"></div><div class="loader-panel right"></div><div class="loader-visual"><img loading="eager" src="assets/img/premium_loader.jpg" alt="MakeupByRuchika Loader" class="loader-img"><div class="loader-glow"></div><div class="loader-shimmer"></div></div></div>
+    
+    <header class="header scrolled">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">MakeupBy<span>Ruchika</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blogs.html" class="active">Blogs</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Book Now</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <div class="container">
+                <h1 class="hero-title reveal-up">Beauty & <span>Insights</span></h1>
+                <p class="section-subtitle reveal-up" style="color: var(--border);">Professional tips, trends, and bridal secrets</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card reveal-up">
+                    <div class="blog-img">
+                        <img loading="lazy" src="assets/img/hero_bridal_makeup.png" alt="Bridal Trends">
+                    </div>
+                    <div class="blog-info">
+                        <span class="blog-date">April 20, 2026</span>
+                        <h3>2026 Bridal Makeup Trends: The Rise of "Quiet Luxury"</h3>
+                        <p>Discover why subtle elegance and "skin-first" artistry are dominating the wedding season this year.</p>
+                        <a href="#" class="btn btn-text">Read Article &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card reveal-up" data-delay="0.2">
+                    <div class="blog-img">
+                        <img loading="lazy" src="assets/img/hd_makeup.png" alt="Skin Prep">
+                    </div>
+                    <div class="blog-info">
+                        <span class="blog-date">April 15, 2026</span>
+                        <h3>The Ultimate Pre-Wedding Skincare Routine</h3>
+                        <p>How to prepare your canvas for a flawless HD makeup finish. Start these 3 months before your big day.</p>
+                        <a href="#" class="btn btn-text">Read Article &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card reveal-up" data-delay="0.4">
+                    <div class="blog-img">
+                        <img loading="lazy" src="assets/img/party_glam_makeup.png" alt="Summer Makeup">
+                    </div>
+                    <div class="blog-info">
+                        <span class="blog-date">April 10, 2026</span>
+                        <h3>Sweat-Proof Makeup Secrets for Summer Weddings</h3>
+                        <p>Don't let the heat ruin your look. Expert tips on products and techniques for long-lasting glam.</p>
+                        <a href="#" class="btn btn-text">Read Article &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 MakeupByRuchika. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
