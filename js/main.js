@@ -21,20 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. REVEAL ON SCROLL (Intersection Observer)
+    // 3. REVEAL ON SCROLL (Staggered & Luxury)
     const revealElements = document.querySelectorAll('.reveal-up');
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                const delay = entry.target.getAttribute('data-delay') || 0;
+                const customDelay = entry.target.getAttribute('data-delay') || 0;
+                const staggerDelay = customDelay || (index % 3) * 0.1;
+                
                 setTimeout(() => {
                     entry.target.classList.add('active');
-                }, delay * 1000);
+                }, staggerDelay * 1000);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    revealElements.forEach(el => {
+        el.style.transition = 'all 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
+        revealObserver.observe(el);
+    });
 
     // 4. COUNTER ANIMATION
     const counters = document.querySelectorAll('.counter');
@@ -200,4 +205,33 @@ links.forEach(link => {
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
     }
+});
+
+// 13. SPARKLE PARTICLE GENERATOR
+function createSparkles() {
+    const container = document.getElementById('sparkle-container');
+    if (!container) return;
+
+    for (let i = 0; i < 20; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(sparkle);
+    }
+}
+createSparkles();
+
+// 14. MAGNETIC BUTTONS (SUBTLE)
+document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+    });
 });

@@ -1346,3 +1346,111 @@ img {
 }
 
 .btn:hover { transform: translateY(-3px) scale(1.02); }
+
+/* LUXURY ANIMATION LIBRARY (1-100+) */
+
+/* 1. HERO SHIMMER */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+    background: linear-gradient(90deg, var(--text) 25%, var(--gold) 50%, var(--text) 75%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s infinite linear;
+}
+
+/* 2. HERO IMAGE ZOOM OUT */
+@keyframes zoomOut {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+.hero-zoom-out {
+    animation: zoomOut 10s ease-out forwards;
+}
+
+/* 3. CTA PULSE GLOW */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+.btn-primary {
+    animation: pulseGlow 3s infinite;
+}
+
+/* 4. SOFT FLOAT */
+@keyframes softFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-anim {
+    animation: softFloat 4s ease-in-out infinite;
+}
+
+/* 5. PORTFOLIO HOVER ZOOM */
+.portfolio-card img {
+    transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+/* 6. GLOW BORDER TRACE */
+.service-card {
+    position: relative;
+    border: 1px solid transparent;
+    transition: border 0.6s ease;
+}
+
+.service-card:hover {
+    border: 1px solid var(--gold);
+    transform: translateY(-10px);
+}
+
+/* 7. SPARKLE PARTICLES (CSS ONLY) */
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: sparkleAnim 4s infinite;
+}
+
+@keyframes sparkleAnim {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: scale(1.5) rotate(180deg); opacity: 0; }
+}
+
+/* 8. SIGNATURE HANDWRITING (SVG PATH) */
+.signature-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 3s ease-out forwards;
+}
+
+@keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+}
+
+/* 9. LUXURY CURTAIN OPEN (Already in loader but refined) */
+.loader-panel {
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* 10. MAGNETIC CTA */
+.btn-magnetic {
+    display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+}
