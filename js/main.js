@@ -154,3 +154,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// 9. PERFORMANCE: PREFETCH ON HOVER
+const links = document.querySelectorAll('a[href".html"]');
+links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        const href = link.getAttribute('href');
+        if (href && !document.querySelector(`link[href="${href}"]`)) {
+            const prefetch = document.createElement('link');
+            prefetch.rel = 'prefetch';
+            prefetch.href = href;
+            document.head.appendChild(prefetch);
+        }
+    }, { once: true });
+});
