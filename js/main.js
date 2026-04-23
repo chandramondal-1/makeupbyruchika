@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             portfolioItems.forEach(item => {
                 if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                    item.style.display = 'block';
+                    item.style.display = 'inline-block';
                     setTimeout(() => {
                         item.style.opacity = '1';
                         item.style.transform = 'scale(1)';
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 9. PERFORMANCE: PREFETCH ON HOVER
-const links = document.querySelectorAll('a[href".html"]');
+const links = document.querySelectorAll('a[href*=".html"]');
 links.forEach(link => {
     link.addEventListener('mouseenter', () => {
         const href = link.getAttribute('href');
